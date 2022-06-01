@@ -22,17 +22,12 @@ public class Banco {
 		return this.cuentas.size(); // QUEEEEEEEEEEEEEE
 	}
 
-	public Cuenta buscarCuentaPorId(Integer idCuenta) {
-		for (int i = 0; i < cuentas.size(); i++) {
-			if (this.cuentas.get(i).getIdCuenta().equals(idCuenta)) {
-				return this.cuentas.get(i);
-			}
-			for (Cuenta cuenta : cuentas) {
-				if (cuenta.getIdCuenta().equals(idCuenta))
-					return cuenta;
-			}
-		}
-		return null;
-	}
+	/*
+	 * public Cuenta buscarCuentaPorId(Integer idCuenta) { for (int i = 0; i <
+	 * cuentas.size(); i++) { if
+	 * (this.cuentas.get(i).getIdCuenta().equals(idCuenta)) { return
+	 * this.cuentas.get(i); } for (Cuenta cuenta : cuentas) { if
+	 * (cuenta.getIdCuenta().equals(idCuenta)) return cuenta; } } return null; }
+	 */
 
 }

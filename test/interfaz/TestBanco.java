@@ -10,8 +10,8 @@ import dominio.Cuenta;
 
 public class TestBanco {
 
-	@Test
-	public void queSePuedaAgregarUnaCuentaAlBanco() {
+
+	/*public void queSePuedaAgregarUnaCuentaAlBanco() {
 		String nombreBanco = "Supervielle";
 		Banco banco = new Banco(nombreBanco);
 
@@ -28,7 +28,7 @@ public class TestBanco {
 		Cuenta cuentaEncontrada = banco.buscarCuentaPorId(idCuenta);
 		assertEquals(cuentaEncontrada, cuenta);
 
-		/*
+		
 		 * Integer valorEsperado = 1; Integer valorObtenido =
 		 * banco.obtenerCantidadDeCuentas(); assertEquals(valorEsperado, valorObtenido);
 		 */
@@ -40,5 +40,5 @@ public class TestBanco {
 		 * cuenta y buscar id cuentas
 		 */
 
-	}
+	
 }
