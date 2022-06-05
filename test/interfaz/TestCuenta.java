@@ -1,11 +1,16 @@
 package interfaz;
 
+import java.util.Scanner;
+
 import org.junit.Assert;
 import org.junit.Test;
 
+import dominio.CajeroAutomatico;
 import dominio.Cuenta;
 
 public class TestCuenta {
+
+	final static int DEPOSITAR = 1, EXTRAER = 2, CONSULTAR = 3, SALIR = 4;
 
 	@Test
 	public void queAlCrearLacuentaSuSaldoSeaCero() {
@@ -160,4 +165,71 @@ public class TestCuenta {
 		return new Cuenta(0.0);
 
 	}
+
+	public static void main(String[] args) {
+		Scanner teclado = new Scanner(System.in);
+		Integer opcionDeseada = 0;
+		String cliente = "", numCuenta = "";
+		Double tipoInteres = 0.0, saldo = 250.0;
+		CajeroAutomatico cajerito = new CajeroAutomatico(cliente, numCuenta, tipoInteres, saldo);
+
+		do {
+			System.out.println("");
+			System.out.println("BIENVENIDO");
+			System.out.println("-----------------------------");
+			System.out.println("Seleccione la opcion deseada.");
+			System.out.println("1 - Depositar");
+			System.out.println("2 - Extraer");
+			System.out.println("3 - Consultar");
+			System.out.println("4 - Salir");
+
+			opcionDeseada = teclado.nextInt();
+
+			switch (opcionDeseada) {
+			case DEPOSITAR:
+				depositar(saldo, teclado);
+				break;
+			case EXTRAER:
+				extraer(saldo, teclado);
+				break;
+			case CONSULTAR:
+				consultar(cajerito);
+				break;
+			case SALIR:
+				System.out.println("chauchis");
+				break;
+			default:
+				System.out.println("ERROR");
+				break;
+
+			}
+		} while (opcionDeseada != SALIR);
+
+	}
+
+	public static void depositar(Double saldo, Scanner teclado) {
+		System.out.println("ingrese cuanto quiere depositar");
+		double deposito = teclado.nextDouble();
+		saldo = saldo + deposito;
+		System.out.println("su saldo es de " + saldo);
+
+	}
+
+	public static void extraer(Double saldo, Scanner teclado) {
+		System.out.println("ingrese cuanto quiere extraer");
+		Double extraccion = teclado.nextDouble();
+		if (saldo > extraccion) {
+			saldo = saldo - extraccion;
+		} else {
+			System.out.println("error");
+		}
+		System.out.println("su saldo es de " + saldo);
+
+	}
+
+	public static String consultar(CajeroAutomatico cajerito) {
+		return cajerito.toString();
+
+	}
+
 }
